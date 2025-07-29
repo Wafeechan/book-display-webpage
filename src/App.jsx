@@ -135,13 +135,14 @@ function App() {
       {/* Filter Panel */}
       {showFilters && (
         <div style={{ border: '1px solid #ccc', padding: '10px', marginBottom: '20px' }}>
-          <input
+          {/*<input
             type="text"
             placeholder="Search book title..."
             value={searchQuery}
             onChange={handleSearchChange}
             style={{ padding: '0.5rem', width: '200px', marginBottom: '10px' }}
           />
+          */}
 
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '10px' }}>
             <select name="country" onChange={handleFilterChange} value={filters.country}>
