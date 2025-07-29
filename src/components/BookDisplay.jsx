@@ -6,7 +6,7 @@ const BookDisplay = ({ book }) => {
     <div className="book-card">
       <div className="book-image-container">
         <img
-          src={`/images/${book.imageLink}`}
+          src={`/${book.imageLink}`}
           alt={book.title}
           className="book-image"
           onError={(e) => {
