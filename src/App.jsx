@@ -4,6 +4,7 @@ import BookDisplay from './components/BookDisplay';
 function App() {
   const [books, setBooks] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const [filters, setFilters] = useState({
     country: 'All',
@@ -57,10 +58,17 @@ function App() {
     const { name, value } = e.target;
     const newFilters = { ...filters, [name]: value };
     setFilters(newFilters);
-    applyFilters(newFilters);
+    applyFilters(newFilters, searchQuery);
   };
 
-  const applyFilters = (activeFilters) => {
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+    applyFilters(filters, value);
+  };
+
+
+  const applyFilters = (activeFilters, titleQuery = '') => {
     let result = [...books];
 
     if (activeFilters.country !== 'All') {
@@ -80,12 +88,29 @@ function App() {
       result = result.filter(b => b.year === parseInt(activeFilters.year));
     }
 
+    // Apply title search (case-insensitive)
+    if (titleQuery.trim() !== '') {
+      result = result.filter(b =>
+        b.title.toLowerCase().includes(titleQuery.toLowerCase())
+      );
+    }
+
     setFilteredBooks(result);
   };
+
 
   return (
     <div style={{ padding: '2rem' }}>
       <h1>Book Library</h1>
+
+      <input
+        type="text"
+        placeholder="Search book title..."
+        value={searchQuery}
+        onChange={handleSearchChange}
+        style={{ padding: '0.5rem', width: '200px' }}
+      />
+
 
       {/* Filter Panel */}
       <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
