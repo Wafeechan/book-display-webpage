@@ -31,8 +31,8 @@ function App() {
   }, []);
 
   const extractOptions = (data) => {
-    const countries = [...new Set(data.map(b => b.country))];
-    const languages = [...new Set(data.map(b => b.language))];
+    const countries = [...new Set(data.map(b => b.country))].sort();
+    const languages = [...new Set(data.map(b => b.language))].sort();
     const years = [...new Set(data.map(b => b.year))].sort((a, b) => a - b);
 
     // Generate page ranges
@@ -42,6 +42,7 @@ function App() {
       const max = min + 99;
       pageRangesSet.add(`${min}-${max}`);
     });
+
     const pageRanges = [...pageRangesSet].sort((a, b) => {
       const [aMin] = a.split('-').map(Number);
       const [bMin] = b.split('-').map(Number);
@@ -50,6 +51,7 @@ function App() {
 
     setOptions({ countries, languages, years, pageRanges });
   };
+
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
