@@ -26,9 +26,10 @@ function App() {
     fetch('/books.json')
       .then(res => res.json())
       .then(data => {
-        setBooks(data);
-        setFilteredBooks(data);
-        extractOptions(data);
+        const sortedData = data.slice().sort((a, b) => a.title.localeCompare(b.title));
+        setBooks(sortedData);
+        setFilteredBooks(sortedData);
+        extractOptions(sortedData);
       });
   }, []);
 
@@ -150,6 +151,7 @@ function App() {
       );
     }
 
+    result.sort((a, b) => a.title.localeCompare(b.title));
     setFilteredBooks(result);
   };
 
