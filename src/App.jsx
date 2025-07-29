@@ -128,46 +128,46 @@ function App() {
         placeholder="Search book title..."
         value={searchQuery}
         onChange={handleSearchChange}
-        style={{ padding: '0.5rem', width: '200px' }}
+        style={{ padding: '0.5rem', width: '200px', marginBottom: '30px' }}
       />
 
 
       {/* Filter Panel */}
       {showFilters && (
-        <div style={{ border: '1px solid #ccc', padding: '10px', marginBottom: '20px' }}>
-          {/*<input
-            type="text"
-            placeholder="Search book title..."
-            value={searchQuery}
-            onChange={handleSearchChange}
-            style={{ padding: '0.5rem', width: '200px', marginBottom: '10px' }}
-          />
-          */}
-
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '10px' }}>
-            <select name="country" onChange={handleFilterChange} value={filters.country}>
+        <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginBottom: '30px' }}>
+          <div>
+            <label htmlFor="country">Filter by Country:</label><br />
+            <select name="country" id="country" onChange={handleFilterChange} value={filters.country}>
               <option>All</option>
               {options.countries.map(c => <option key={c}>{c}</option>)}
             </select>
+          </div>
 
-            <select name="language" onChange={handleFilterChange} value={filters.language}>
+          <div>
+            <label htmlFor="language">Filter by Language:</label><br />
+            <select name="language" id="language" onChange={handleFilterChange} value={filters.language}>
               <option>All</option>
               {options.languages.map(l => <option key={l}>{l}</option>)}
             </select>
+          </div>
 
-            <select name="pageRange" onChange={handleFilterChange} value={filters.pageRange}>
+          <div>
+            <label htmlFor="pageRange">Filter by Page Range:</label><br />
+            <select name="pageRange" id="pageRange" onChange={handleFilterChange} value={filters.pageRange}>
               <option>All</option>
               {options.pageRanges.map(p => <option key={p}>{p}</option>)}
             </select>
+          </div>
 
-            <select name="year" onChange={handleFilterChange} value={filters.year}>
+          <div>
+            <label htmlFor="year">Filter by Year:</label><br />
+            <select name="year" id="year" onChange={handleFilterChange} value={filters.year}>
               <option>All</option>
               {options.years.map(y => <option key={y}>{y}</option>)}
             </select>
-
-            <button onClick={handleResetFilters}>Reset Filters</button>
           </div>
         </div>
+
       )}
 
 
