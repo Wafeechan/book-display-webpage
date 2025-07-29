@@ -5,6 +5,7 @@ function App() {
   const [books, setBooks] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [showFilters, setShowFilters] = useState(false);
 
   const [filters, setFilters] = useState({
     country: 'All',
@@ -67,6 +68,20 @@ function App() {
     applyFilters(filters, value);
   };
 
+  const handleResetFilters = () => {
+    const resetFilters = {
+      country: 'All',
+      language: 'All',
+      pageRange: 'All',
+      year: 'All',
+    };
+
+    setFilters(resetFilters);
+    setSearchQuery('');
+    setShowFilters(false); // optional: hide filters after reset
+    applyFilters(resetFilters, '');
+  };
+
 
   const applyFilters = (activeFilters, titleQuery = '') => {
     let result = [...books];
@@ -101,6 +116,11 @@ function App() {
 
   return (
     <div style={{ padding: '2rem' }}>
+      <button onClick={() => setShowFilters(!showFilters)} style={{ marginBottom: '10px' }}>
+        {showFilters ? 'Hide Filters' : 'Show Filters'}
+      </button>
+
+
       <h1>Book Library</h1>
 
       <input
@@ -113,27 +133,42 @@ function App() {
 
 
       {/* Filter Panel */}
-      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
-        <select name="country" onChange={handleFilterChange} value={filters.country}>
-          <option value="All">All Countries</option>
-          {options.countries.map((c, i) => <option key={i} value={c}>{c}</option>)}
-        </select>
+      {showFilters && (
+        <div style={{ border: '1px solid #ccc', padding: '10px', marginBottom: '20px' }}>
+          <input
+            type="text"
+            placeholder="Search book title..."
+            value={searchQuery}
+            onChange={handleSearchChange}
+            style={{ padding: '0.5rem', width: '200px', marginBottom: '10px' }}
+          />
 
-        <select name="language" onChange={handleFilterChange} value={filters.language}>
-          <option value="All">All Languages</option>
-          {options.languages.map((l, i) => <option key={i} value={l}>{l}</option>)}
-        </select>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '10px' }}>
+            <select name="country" onChange={handleFilterChange} value={filters.country}>
+              <option>All</option>
+              {options.countries.map(c => <option key={c}>{c}</option>)}
+            </select>
 
-        <select name="pageRange" onChange={handleFilterChange} value={filters.pageRange}>
-          <option value="All">All Page Ranges</option>
-          {options.pageRanges.map((r, i) => <option key={i} value={r}>{r} pages</option>)}
-        </select>
+            <select name="language" onChange={handleFilterChange} value={filters.language}>
+              <option>All</option>
+              {options.languages.map(l => <option key={l}>{l}</option>)}
+            </select>
 
-        <select name="year" onChange={handleFilterChange} value={filters.year}>
-          <option value="All">All Years</option>
-          {options.years.map((y, i) => <option key={i} value={y}>{y}</option>)}
-        </select>
-      </div>
+            <select name="pageRange" onChange={handleFilterChange} value={filters.pageRange}>
+              <option>All</option>
+              {options.pageRanges.map(p => <option key={p}>{p}</option>)}
+            </select>
+
+            <select name="year" onChange={handleFilterChange} value={filters.year}>
+              <option>All</option>
+              {options.years.map(y => <option key={y}>{y}</option>)}
+            </select>
+
+            <button onClick={handleResetFilters}>Reset Filters</button>
+          </div>
+        </div>
+      )}
+
 
       {/* Book Display Grid */}
       <div style={{
