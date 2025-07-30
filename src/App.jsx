@@ -163,7 +163,6 @@ function App() {
         padding: '2rem',
         maxWidth: '100%',
         width: '100%',
-        boxSizing: 'border-box'
       }} 
       className="page-container">
       <button
