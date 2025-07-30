@@ -160,9 +160,13 @@ function App() {
 
   return (
     <div style={{ padding: '2rem' }}>
-      <button onClick={() => setShowFilters(!showFilters)} style={{ marginBottom: '10px' }}>
-        {showFilters ? 'Hide Filters' : 'Show Filters'}
+      <button
+        onClick={() => setShowFilters(!showFilters)}
+        className="filter-toggle"
+      >
+        {showFilters ? '✕ Close Filters' : '☰ Filters'}
       </button>
+
 
       <h1>Book Library</h1>
 
