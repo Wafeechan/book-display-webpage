@@ -208,7 +208,7 @@ function App() {
 
   return (
     <div style={{
-        padding: '2rem',
+        /*padding: '2rem',*/
         maxWidth: '100%',
         width: '100%',
       }} 

@@ -25,12 +25,9 @@ a:hover {
 body, html, #root {
   margin: 0;
   padding: 0;
-  width: 95vw;
+  width: 100%;
   /*min-width: 100%;*/
   box-sizing: border-box;
-}
-
-body {
   background-color: cyan;
 }
 
