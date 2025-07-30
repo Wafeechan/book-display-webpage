@@ -226,8 +226,8 @@ function App() {
         ))}
       </div>
 
+      {/* Pagination Controls */}
       <div>
-        {/* Pagination Controls */}
         {filteredBooks.length > booksPerPage && (
           <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '30px', marginBottom: '20px' }}>
             <button
