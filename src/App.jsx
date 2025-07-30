@@ -212,12 +212,7 @@ function App() {
       )}
 
       {/* Book Display Grid */}
-      <div style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '1.5rem',
-        justifyContent: 'center'
-      }}>
+      <div className="book-grid">
         {filteredBooks
           .slice((currentPage - 1) * booksPerPage, currentPage * booksPerPage)
           .map((book, index) => (
