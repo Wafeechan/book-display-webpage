@@ -214,7 +214,7 @@ function App() {
       }} 
       className="page-container">
       
-      {/*Div for top bar*/}
+      {/*div for top bar*/}
       <div style={{
         marginLeft: '10rem',
         marginRight: '10rem',
@@ -273,6 +273,7 @@ function App() {
         </div>
       )}
       </div>
+      {/*End div for top bar*/}
 
       <div style={{
         width: '100%',
