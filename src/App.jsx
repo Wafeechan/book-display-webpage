@@ -159,7 +159,7 @@ function App() {
   };
 
   return (
-    <div style={{ padding: '2rem' }}>
+    <div style={{ padding: '2rem' }} className="page-container">
       <button
         onClick={() => setShowFilters(!showFilters)}
         className="filter-toggle"
