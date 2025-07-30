@@ -275,8 +275,11 @@ function App() {
       </div>
 
       <div style={{
-        paddingTop: '15rem',
-        backgroundColor: 'brown'
+        width: '100%',
+        height: '250px',
+        backgroundImage: 'url("/wood-bg.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}></div>
 
       {/* Book Display Grid */}
