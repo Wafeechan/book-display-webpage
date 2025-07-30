@@ -11,41 +11,26 @@ function App() {
 
   const isMobile = window.innerWidth <= 768;
 
-  const bookGridStyle = {
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: '1.5rem',
-    justifyContent: 'center',
-    ...(isMobile && {
-      flexDirection: 'row',
-    })
-  };
-
   const filterToggleStyle = {
     marginBottom: '10px',
     padding: '0.5rem 1rem',
     cursor: 'pointer',
-    fontSize: '1rem',
+    fontSize: '0.9rem',
     border: 'none',
     backgroundColor: '#ddd',
     borderRadius: '5px',
     ...(isMobile && {
-      position: 'absolute',
-      top: '1rem',
-      right: '1rem',
-      zIndex: 1000,
+
     })
   };
 
   const filterPanelStyle = {
     display: 'flex',
     flexWrap: 'wrap',
-    gap: '20px',
+    gap: '5px',
     marginBottom: '30px',
     ...(isMobile && {
-      position: 'absolute',
       top: '3.5rem', // space below the toggle button
-      right: '1rem',
       width: '70vw',
       flexDirection: 'column',
       padding: '1rem',
@@ -218,9 +203,20 @@ function App() {
       <div style={{
         marginLeft: '10rem',
         marginRight: '10rem',
+        ...(isMobile && {
+          marginLeft: '5rem',
+          marginRight: '5rem',
+        })
       }}>
 
-      <h1>Umazon Books</h1>
+      <h1
+        style={{
+          fontSize: '3rem',
+          ...(isMobile && {
+            fontSize: '2rem',
+          })
+        }}
+      >Umazon Books</h1>
 
       <div>
         <button
@@ -234,7 +230,7 @@ function App() {
           placeholder="Search book title..."
           value={searchQuery}
           onChange={handleSearchChange}
-          style={{ padding: '0.5rem', width: '200px', marginBottom: '30px' }}
+          style={{ padding: '0.5rem', width: '50vw', marginBottom: '30px' }}
         />
       </div>
       
@@ -284,6 +280,9 @@ function App() {
         backgroundImage: 'url("/wood-bg2.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        ...(isMobile && {
+          height: '100px',
+        })
       }}></div>
 
       {/* Book Display Grid */}
