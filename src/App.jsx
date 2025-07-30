@@ -226,7 +226,7 @@ function App() {
         {showFilters ? '✕ Close Filters' : '☰ Filters'}
       </button>
 
-      <h1>Book Library</h1>
+      <h1 style={{ fontFamily: 'Times New Roman, Times, serif' }}>Umazon Books</h1>
 
       <input
         type="text"
@@ -277,7 +277,7 @@ function App() {
       <div style={{
         width: '100%',
         height: '250px',
-        backgroundImage: 'url("/wood-bg.jpg")',
+        backgroundImage: 'url("/wood-bg2.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}></div>
