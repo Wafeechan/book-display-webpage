@@ -278,8 +278,7 @@ function App() {
           padding: '2rem',
           marginTop: '2rem',
           maxWidth: '1200px',
-          marginLeft: 'auto',
-          marginRight: 'auto',
+          margin: '1rem auto',
         }}
       >
         <div
