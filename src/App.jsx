@@ -199,6 +199,12 @@ function App() {
       }} 
       className="page-container">
       
+      <div style={{
+        width: '100%',
+        height: '3rem',
+        backgroundColor: '#ff5036',
+      }}/>
+      
       {/*div for top bar*/}
       <div style={{
         marginLeft: '10rem',
@@ -209,14 +215,28 @@ function App() {
         })
       }}>
 
-      <h1
+      <div
         style={{
-          fontSize: '3rem',
+          fontWeight: '700',
+          fontSize: '3.5rem',
+          marginTop: '2rem',
           ...(isMobile && {
             fontSize: '2rem',
+            marginTop: '2rem',
           })
         }}
-      >Umazon Books</h1>
+      >Umazon Books</div>
+      <div
+        style={{
+          fontWeight: '100',
+          fontSize: '1.5rem',
+          color: 'gray',
+          marginBottom: '1rem',
+          ...(isMobile && {
+            fontSize: '1rem',
+          })
+        }}
+      >#Umazing selection!</div>
 
       <div>
         <button
@@ -276,7 +296,7 @@ function App() {
 
       <div style={{
         width: '100%',
-        height: '250px',
+        height: '150px',
         backgroundImage: 'url("/wood-bg2.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
