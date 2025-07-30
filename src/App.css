@@ -41,6 +41,13 @@
   color: #888;
 }
 
+.book-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
 /*
 .book-grid {
   display: flex;
