@@ -4,6 +4,8 @@ import BookDisplay from './components/BookDisplay';
 function App() {
   const [books, setBooks] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const booksPerPage = 20;
   const [searchQuery, setSearchQuery] = useState('');
   const [showFilters, setShowFilters] = useState(false);
 
@@ -152,6 +154,7 @@ function App() {
     }
 
     result.sort((a, b) => a.title.localeCompare(b.title));
+    setCurrentPage(1); // Reset to first page whenever filters/search applied
     setFilteredBooks(result);
   };
 
@@ -215,9 +218,45 @@ function App() {
         gap: '1.5rem',
         justifyContent: 'center'
       }}>
-        {filteredBooks.map((book, index) => (
+        {filteredBooks
+          .slice((currentPage - 1) * booksPerPage, currentPage * booksPerPage)
+          .map((book, index) => (
+
           <BookDisplay key={index} book={book} />
         ))}
+      </div>
+
+      <div>
+        {/* Pagination Controls */}
+        {filteredBooks.length > booksPerPage && (
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '30px', marginBottom: '20px' }}>
+            <button
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage(prev => prev - 1)}
+            >
+              Prev
+            </button>
+
+            {[...Array(Math.ceil(filteredBooks.length / booksPerPage)).keys()].map(i => (
+              <button
+                key={i}
+                onClick={() => setCurrentPage(i + 1)}
+                style={{
+                  fontWeight: currentPage === i + 1 ? 'bold' : 'normal'
+                }}
+              >
+                {i + 1}
+              </button>
+            ))}
+
+            <button
+              disabled={currentPage === Math.ceil(filteredBooks.length / booksPerPage)}
+              onClick={() => setCurrentPage(prev => prev + 1)}
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
