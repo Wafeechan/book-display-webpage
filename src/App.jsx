@@ -180,7 +180,7 @@ function App() {
 
       {/* Filter Panel */}
       {showFilters && (
-        <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginBottom: '30px' }}>
+        <div className="filter-panel">
           <div>
             <label htmlFor="country">Filter by Country:</label><br />
             <select name="country" id="country" onChange={handleFilterChange} value={filters.country}>
