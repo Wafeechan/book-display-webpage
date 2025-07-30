@@ -273,7 +273,11 @@ function App() {
         </div>
       )}
       </div>
-      
+
+      <div style={{
+        paddingTop: '15rem',
+        backgroundColor: 'brown'
+      }}></div>
 
       {/* Book Display Grid */}
       <div
