@@ -29,6 +29,7 @@ body, html, #root {
   /*min-width: 100%;*/
   box-sizing: border-box;
   background-color: white;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 h1 {
