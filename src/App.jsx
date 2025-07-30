@@ -9,6 +9,47 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [showFilters, setShowFilters] = useState(false);
 
+  const isMobile = window.innerWidth <= 768;
+
+  const bookGridStyle = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '1.5rem',
+    justifyContent: 'center',
+    ...(isMobile && {
+      flexDirection: 'row',
+    })
+  };
+
+  const filterToggleStyle = {
+    marginBottom: '10px',
+    padding: '0.5rem 1rem',
+    cursor: 'pointer',
+    fontSize: '1rem',
+    border: 'none',
+    backgroundColor: '#ddd',
+    borderRadius: '5px',
+    ...(isMobile && {
+      position: 'absolute',
+      top: '1rem',
+      right: '1rem',
+      zIndex: 1000,
+    })
+  };
+
+  const filterPanelStyle = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '20px',
+    marginBottom: '30px',
+    ...(isMobile && {
+      flexDirection: 'column',
+      padding: '1rem',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '8px',
+    })
+  };
+
   const [filters, setFilters] = useState({
     country: 'All',
     language: 'All',
@@ -167,10 +208,11 @@ function App() {
       className="page-container">
       <button
         onClick={() => setShowFilters(!showFilters)}
-        className="filter-toggle"
+        style={filterToggleStyle}
       >
         {showFilters ? '✕ Close Filters' : '☰ Filters'}
       </button>
+
 
 
       <h1>Book Library</h1>
@@ -185,7 +227,7 @@ function App() {
 
       {/* Filter Panel */}
       {showFilters && (
-        <div className="filter-panel">
+        <div style={filterPanelStyle}>
           <div>
             <label htmlFor="country">Filter by Country:</label><br />
             <select name="country" id="country" onChange={handleFilterChange} value={filters.country}>
@@ -221,7 +263,7 @@ function App() {
       )}
 
       {/* Book Display Grid */}
-      <div className="book-grid">
+      <div style={bookGridStyle}>
         {filteredBooks
           .slice((currentPage - 1) * booksPerPage, currentPage * booksPerPage)
           .map((book, index) => (
