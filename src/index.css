@@ -30,6 +30,10 @@ body, html, #root {
   box-sizing: border-box;
 }
 
+body {
+  background-color: cyan;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
