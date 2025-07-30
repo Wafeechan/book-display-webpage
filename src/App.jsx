@@ -5,7 +5,7 @@ function App() {
   const [books, setBooks] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const booksPerPage = 20;
+  const [booksPerPage, setBooksPerPage] = useState(20);
   const [searchQuery, setSearchQuery] = useState('');
   const [showFilters, setShowFilters] = useState(false);
 
@@ -285,7 +285,10 @@ function App() {
           <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '30px', marginBottom: '20px' }}>
             <button
               disabled={currentPage === 1}
-              onClick={() => setCurrentPage(prev => prev - 1)}
+              onClick={() => {
+                setCurrentPage(prev => prev - 1);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
             >
               Prev
             </button>
@@ -304,12 +307,32 @@ function App() {
 
             <button
               disabled={currentPage === Math.ceil(filteredBooks.length / booksPerPage)}
-              onClick={() => setCurrentPage(prev => prev + 1)}
+              onClick={() => {
+                setCurrentPage(prev => prev + 1);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
             >
               Next
             </button>
           </div>
         )}
+        <div style={{ textAlign: 'center', margin: '20px 0' }}>
+          <label htmlFor="booksPerPage">Books per page:&nbsp;</label>
+          <select
+            id="booksPerPage"
+            value={booksPerPage}
+            onChange={(e) => {
+              setBooksPerPage(Number(e.target.value));
+              setCurrentPage(1); // Reset to first page when changing size
+            }}
+            style={{ padding: '0.4rem', fontSize: '1rem' }}
+          >
+            <option value={20}>20</option>
+            <option value={50}>50</option>
+            <option value={100}>100</option>
+          </select>
+        </div>
+
       </div>
     </div>
   );
