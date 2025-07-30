@@ -43,12 +43,19 @@ function App() {
     gap: '20px',
     marginBottom: '30px',
     ...(isMobile && {
+      position: 'absolute',
+      top: '3.5rem', // space below the toggle button
+      right: '1rem',
+      width: '70vw',
       flexDirection: 'column',
       padding: '1rem',
       backgroundColor: '#f5f5f5',
       borderRadius: '8px',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.15)',
+      zIndex: 1000,
     })
   };
+
 
   const [filters, setFilters] = useState({
     country: 'All',
