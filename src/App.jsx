@@ -219,22 +219,25 @@ function App() {
         marginLeft: '10rem',
         marginRight: '10rem',
       }}>
+
+      <h1>Umazon Books</h1>
+
+      <div>
         <button
-        onClick={() => setShowFilters(!showFilters)}
-        style={filterToggleStyle}
-      >
-        {showFilters ? '✕ Close Filters' : '☰ Filters'}
-      </button>
-
-      <h1 style={{ fontFamily: 'Times New Roman, Times, serif' }}>Umazon Books</h1>
-
-      <input
-        type="text"
-        placeholder="Search book title..."
-        value={searchQuery}
-        onChange={handleSearchChange}
-        style={{ padding: '0.5rem', width: '200px', marginBottom: '30px' }}
-      />
+          onClick={() => setShowFilters(!showFilters)}
+          style={filterToggleStyle}
+        >
+          {showFilters ? '✕ Close Filters' : '☰ Filters'}
+        </button>
+        <input
+          type="text"
+          placeholder="Search book title..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+          style={{ padding: '0.5rem', width: '200px', marginBottom: '30px' }}
+        />
+      </div>
+      
 
       {/* Filter Panel */}
       {showFilters && (
