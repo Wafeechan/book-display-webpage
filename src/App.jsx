@@ -270,14 +270,34 @@ function App() {
       )}
 
       {/* Book Display Grid */}
-      <div style={bookGridStyle}>
-        {filteredBooks
-          .slice((currentPage - 1) * booksPerPage, currentPage * booksPerPage)
-          .map((book, index) => (
-
-          <BookDisplay key={index} book={book} />
-        ))}
+      <div
+        style={{
+          backgroundColor: 'white',
+          borderRadius: '12px',
+          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+          padding: '2rem',
+          marginTop: '2rem',
+          maxWidth: '1200px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '1.5rem',
+            justifyContent: 'center',
+          }}
+        >
+          {filteredBooks
+            .slice((currentPage - 1) * booksPerPage, currentPage * booksPerPage)
+            .map((book, index) => (
+              <BookDisplay key={index} book={book} />
+            ))}
+        </div>
       </div>
+
 
       {/* Pagination Controls */}
       <div>
