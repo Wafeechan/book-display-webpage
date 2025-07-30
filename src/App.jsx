@@ -213,14 +213,18 @@ function App() {
         width: '100%',
       }} 
       className="page-container">
-      <button
+      
+      {/*Div for top bar*/}
+      <div style={{
+        marginLeft: '10rem',
+        marginRight: '10rem',
+      }}>
+        <button
         onClick={() => setShowFilters(!showFilters)}
         style={filterToggleStyle}
       >
         {showFilters ? '✕ Close Filters' : '☰ Filters'}
       </button>
-
-
 
       <h1>Book Library</h1>
 
@@ -268,16 +272,15 @@ function App() {
           </div>
         </div>
       )}
+      </div>
+      
 
       {/* Book Display Grid */}
       <div
         style={{
-          backgroundColor: 'white',
-          borderRadius: '12px',
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
           padding: '2rem',
           marginTop: '2rem',
-          maxWidth: '1200px',
+          width: '95%',
           margin: '1rem auto',
         }}
       >
