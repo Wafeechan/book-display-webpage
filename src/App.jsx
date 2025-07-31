@@ -308,9 +308,9 @@ function App() {
       {/* Book Display Grid */}
       <div
         style={{
-          padding: '2rem',
+          padding: '1rem',
           marginTop: '2rem',
-          width: '95%',
+          width: '75%',
           margin: '1rem auto',
         }}
       >
