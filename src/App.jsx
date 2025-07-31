@@ -342,9 +342,10 @@ function App() {
               marginTop: '30px', 
               marginBottom: '20px',
               ...(isMobile && {
-                marginTop: '20px', 
-                marginBottom: '15px',
+                marginTop: '15px', 
+                marginBottom: '10px',
                 gap: '6px',
+                fontSize: '0.8rem',
               })
             }}>
             <button
