@@ -31,9 +31,9 @@ function App() {
     marginBottom: '30px',
     ...(isMobile && {
       top: '3.5rem', // space below the toggle button
-      width: '70vw',
+      width: '50vw',
       flexDirection: 'column',
-      padding: '1rem',
+      padding: '0.75rem',
       backgroundColor: '#f5f5f5',
       borderRadius: '8px',
       boxShadow: '0 2px 10px rgba(0,0,0,0.15)',
