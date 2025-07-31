@@ -381,7 +381,14 @@ function App() {
             </button>
           </div>
         )}
-        <div style={{ textAlign: 'center', margin: '20px 0' }}>
+        <div style={{ 
+          textAlign: 'center', 
+          margin: '20px 0',
+          ...(isMobile && {
+            margin: '12px',
+            fontSize: '0.8rem',
+          })
+        }}>
           <label htmlFor="booksPerPage">Books per page:&nbsp;</label>
           <select
             id="booksPerPage"
