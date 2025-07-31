@@ -32,6 +32,7 @@ function App() {
     ...(isMobile && {
       top: '3.5rem', // space below the toggle button
       width: '50vw',
+      maxWidth: '200px',
       flexDirection: 'column',
       padding: '0.75rem',
       backgroundColor: '#f5f5f5',
@@ -260,7 +261,13 @@ function App() {
         <div style={filterPanelStyle}>
           <div>
             <label htmlFor="country">Filter by Country:</label><br />
-            <select name="country" id="country" onChange={handleFilterChange} value={filters.country}>
+            <select name="country" id="country" onChange={handleFilterChange} value={filters.country}
+              style={{
+                ...(isMobile && {
+                  maxWidth: '150px',
+                })
+              }}
+            >
               <option>All</option>
               {options.countries.map(c => <option key={c}>{c}</option>)}
             </select>
