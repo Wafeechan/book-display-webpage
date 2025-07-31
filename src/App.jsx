@@ -334,7 +334,19 @@ function App() {
       {/* Pagination Controls */}
       <div>
         {filteredBooks.length > booksPerPage && (
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '30px', marginBottom: '20px' }}>
+          <div 
+            style={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              gap: '10px', 
+              marginTop: '30px', 
+              marginBottom: '20px',
+              ...(isMobile && {
+                marginTop: '20px', 
+                marginBottom: '15px',
+                gap: '6px',
+              })
+            }}>
             <button
               disabled={currentPage === 1}
               onClick={() => {
